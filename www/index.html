@@ -8,12 +8,11 @@
         <script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
         <script>
             function getContent(){
-                $.get($("#url").val(), function( data ) {
-                  $( "#content" ).html( data );
-                });
+              var url = $("#url").val()
+              $("#content").attr('src',url);
             }    
         </script>
-        <title>Hola</title>
+        <title>Blank</title>
     </head>
     <body>
         <br/>
@@ -21,8 +20,7 @@
             <input id="url" name="url" size="30" placeholder="web address">
             <button type="submit" onclick="getContent()">Find</button>
         </p>
-        <div id="content"></div>
-        <div><iframe src="http://stm2.tiremaster.net" height="500" width="500"></iframe></div>
+        <div><iframe id="content" src="" height="100%" width="100%"></iframe></div>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
