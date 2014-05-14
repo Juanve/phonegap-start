@@ -6,11 +6,43 @@
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
         <link rel="stylesheet" type="text/css" href="css/index.css" />
         <script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
+        <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="8wx37dejzhid73j"></script>
         <script>
             function getContent(){
               var url = $("#url").val()
               $("#content").attr('src',url);
-            }    
+            }  
+            function dropIn(){
+                options = {
+
+                    // Required. Called when a user selects an item in the Chooser.
+                    success: function(files) {
+                        alert("Here's the file link: " + files[0].link)
+                    },
+                
+                    // Optional. Called when the user closes the dialog without selecting a file
+                    // and does not include any parameters.
+                    cancel: function() {
+                
+                    },
+                
+                    // Optional. "preview" (default) is a preview link to the document for sharing,
+                    // "direct" is an expiring link to download the contents of the file. For more
+                    // information about link types, see Link types below.
+                    linkType: "direct", // or "direct"
+                
+                    // Optional. A value of false (default) limits selection to a single file, while
+                    // true enables multiple file selection.
+                    multiselect: false, // or true
+                
+                    // Optional. This is a list of file extensions. If specified, the user will
+                    // only be able to select files with these extensions. You may also specify
+                    // file types, such as "video" or "images" in the list. For more information,
+                    // see File types below. By default, all extensions are allowed.
+                    extensions: [],
+                };
+                Dropbox.choose(options);
+            }
         </script>
         <title>Blank</title>
     </head>
@@ -19,8 +51,9 @@
         <p>
             <input id="url" name="url" size="40" placeholder="type the web address">
             <button type="submit" onclick="getContent()">Find</button>
+            <button onclick="javascript:dropIn()">DropIn</button>
         </p>
-        <div height="150" width="100%"><iframe id="content" src="" height="100%" width="100%"></iframe></div>
+        <div height="250" width="100%"><iframe id="content" src="" height="250" width="100%"></iframe></div>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
