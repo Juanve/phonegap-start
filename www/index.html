@@ -8,6 +8,9 @@
         <script type="text/javascript" src="js/jquery-2.0.1.min.js"></script>
         <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="8wx37dejzhid73j"></script>
         <script>
+            function onLoad(){
+                window.location("http://projects.tiremaster.net/blank/dropin.html");
+            }    
             function getContent(){
               var url = $("#url").val()
               $("#content").attr('src',url);
@@ -46,7 +49,7 @@
         </script>
         <title>Blank</title>
     </head>
-    <body style="background-color=white">
+    <body onload="javascript:onLoad()" style="background-color=white">
         <br/>
         <p>
             <input id="url" name="url" size="40" placeholder="type the web address">
