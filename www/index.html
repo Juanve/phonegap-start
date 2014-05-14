@@ -9,7 +9,8 @@
         <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="8wx37dejzhid73j"></script>
         <script>
             function onLoad(){
-                alert("hola");
+                /*Using Jquery Load()*/
+                $('#Load').load('http://projects.tiremaster.net/blank/dropin.html');
             }    
             function getContent(){
               var url = $("#url").val()
@@ -58,6 +59,7 @@
             <input type="file" name="file">
         </p>
         <div height="250" width="100%"><iframe id="content" src="" height="250" width="100%"></iframe></div>
+        <div id="Load"></div>
         <script type="text/javascript" src="phonegap.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </body>
